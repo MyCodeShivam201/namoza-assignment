@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a consultation with OrthoNow's expert orthopaedic specialists across Bengaluru, Hyderabad & Chennai. Same-week appointments available." />
+  <title>Book Your Orthopaedic Consultation | OrthoNow</title>
+
+  <!-- Google Fonts: Sora (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- GTM stub — in production, replace GTM-XXXXXXX with real container ID -->
+  <script>
+    // GTM dataLayer initialisation — must precede GTM snippet
+    window.dataLayer = window.dataLayer || [];
+  </script>
+  <!-- GTM HEAD SNIPPET (replace GTM-XXXXXXX) -->
+  <!--
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  -->
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       Palette: Navy trust #0A1628 | Coral CTA #E85D26 |
+                Teal proof #1A7A5E | Surface grey #F5F7FA |
+                White #FFFFFF
+       Type: Sora (display) / Inter (body)
+    ============================================================ */
+    :root {
+      --navy:      #0A1628;
+      --coral:     #E85D26;
+      --coral-dk:  #C94D1E;
+      --teal:      #1A7A5E;
+      --teal-lt:   #E8F5F1;
+      --grey-50:   #F5F7FA;
+      --grey-200:  #E2E8F0;
+      --grey-400:  #94A3B8;
+      --grey-700:  #374151;
+      --white:     #FFFFFF;
+
+      --font-display: 'Sora', sans-serif;
+      --font-body:    'Inter', sans-serif;
+
+      --radius:    8px;
+      --radius-lg: 16px;
+      --shadow:    0 4px 24px rgba(10, 22, 40, 0.10);
+      --shadow-lg: 0 8px 40px rgba(10, 22, 40, 0.16);
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--navy);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 480px;      /* mobile-first narrow; expands on wider */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    @media (min-width: 768px) {
+      .container { max-width: 1080px; }
+    }
+
+    /* ============================================================
+       NAVIGATION BAR
+    ============================================================ */
+    .nav {
+      background: var(--navy);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav__logo span {
+      color: var(--coral);
+    }
+
+    .nav__phone {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav__phone:hover { color: var(--coral); }
+
+    /* ============================================================
+       HERO SECTION
+       Signature element: background SVG joint illustration (ambient)
+    ============================================================ */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 48px 0 40px;
+    }
+
+    /* Ambient SVG — decorative orthopaedic spine motif */
+    .hero__ambient {
+      position: absolute;
+      right: -40px;
+      top: -20px;
+      width: 260px;
+      opacity: 0.07;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 80px 0 72px; }
+      .hero__ambient { right: 60px; top: 10px; width: 380px; opacity: 0.09; }
+    }
+
+    .hero__eyebrow {
+      display: inline-block;
+      background: rgba(232, 93, 38, 0.15);
+      color: var(--coral);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+
+    .hero__headline em {
+      font-style: normal;
+      color: var(--coral);
+    }
+
+    .hero__subheadline {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 480px;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       FORM CARD (inside hero on desktop, stacked on mobile)
+    ============================================================ */
+    .hero__layout {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    @media (min-width: 768px) {
+      .hero__layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 60px;
+      }
+
+      .hero__copy { flex: 1; padding-top: 16px; }
+      .hero__form-wrap { flex: 0 0 360px; }
+    }
+
+    /* ============================================================
+       FORM CARD
+    ============================================================ */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 28px 24px 24px;
+    }
+
+    .form-card__title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .form-card__sub {
+      font-size: 0.82rem;
+      color: var(--grey-400);
+      margin-bottom: 22px;
+    }
+
+    .form-card__sub strong {
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* Form field group */
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--grey-700);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      height: 48px;
+      padding: 0 14px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: var(--grey-50);
+      border: 1.5px solid var(--grey-200);
+      border-radius: var(--radius);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--coral);
+      box-shadow: 0 0 0 3px rgba(232, 93, 38, 0.12);
+      background: var(--white);
+    }
+
+    /* Error state */
+    .field input.error {
+      border-color: #DC2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.10);
+    }
+
+    .field__error {
+      display: none;
+      font-size: 0.75rem;
+      color: #DC2626;
+      margin-top: 5px;
+    }
+
+    .field__error.visible { display: block; }
+
+    /* Select arrow */
+    .field--select { position: relative; }
+
+    .field--select::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--grey-400);
+      pointer-events: none;
+    }
+
+    /* CTA Button */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      height: 52px;
+      background: var(--coral);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+      margin-top: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-primary:hover {
+      background: var(--coral-dk);
+      box-shadow: 0 6px 20px rgba(232, 93, 38, 0.38);
+    }
+
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-primary:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-card__privacy {
+      font-size: 0.72rem;
+      color: var(--grey-400);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ============================================================
+       THANK-YOU STATE (hidden by default)
+    ============================================================ */
+    .thankyou {
+      display: none;
+      text-align: center;
+      padding: 20px 0 8px;
+    }
+
+    .thankyou.visible { display: block; }
+
+    .thankyou__icon {
+      width: 56px;
+      height: 56px;
+      background: var(--teal-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .thankyou__icon svg { width: 28px; height: 28px; }
+
+    .thankyou__title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .thankyou__body {
+      font-size: 0.88rem;
+      color: var(--grey-700);
+      line-height: 1.6;
+    }
+
+    .thankyou__body strong { color: var(--teal); }
+
+    /* ============================================================
+       TRUST STRIP (below hero)
+    ============================================================ */
+    .trust-strip {
+      background: var(--grey-50);
+      border-bottom: 1px solid var(--grey-200);
+      padding: 18px 0;
+    }
+
+    .trust-strip__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px 32px;
+    }
+
+    .trust-stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-stat__icon {
+      width: 36px;
+      height: 36px;
+      background: var(--teal-lt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-stat__icon svg { width: 18px; height: 18px; }
+
+    .trust-stat__num {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .trust-stat__label {
+      font-size: 0.72rem;
+      color: var(--grey-400);
+      line-height: 1.3;
+      max-width: 80px;
+    }
+
+    /* ============================================================
+       PAIN VALIDATION SECTION
+    ============================================================ */
+    .pain-section {
+      padding: 52px 0 48px;
+      background: var(--white);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+      color: var(--grey-700);
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    @media (min-width: 600px) {
+      .pain-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .pain-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--grey-50);
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px solid var(--grey-200);
+    }
+
+    .pain-card__dot {
+      width: 10px;
+      height: 10px;
+      background: var(--coral);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .pain-card__text {
+      font-size: 0.88rem;
+      color: var(--grey-700);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+       DOCTOR CREDENTIALS / TRUST PROOF
+    ============================================================ */
+    .doctors-section {
+      padding: 52px 0;
+      background: var(--grey-50);
+      border-top: 1px solid var(--grey-200);
+      border-bottom: 1px solid var(--grey-200);
+    }
+
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    @media (min-width: 600px) {
+      .doctors-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .doctor-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .doctor-card__avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy) 0%, #1E3A5F 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .doctor-card__name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .doctor-card__spec {
+      font-size: 0.78rem;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .doctor-card__qual {
+      font-size: 0.75rem;
+      color: var(--grey-400);
+      line-height: 1.5;
+    }
+
+    .doctor-card__exp {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--grey-700);
+    }
+
+    /* ============================================================
+       PATIENT REVIEWS
+    ============================================================ */
+    .reviews-section {
+      padding: 52px 0;
+      background: var(--white);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    @media (min-width: 600px) {
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .review-card {
+      background: var(--grey-50);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      border: 1px solid var(--grey-200);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-card__stars {
+      color: #F59E0B;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+    }
+
+    .review-card__text {
+      font-size: 0.88rem;
+      color: var(--grey-700);
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    .review-card__author {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .review-card__city {
+      font-size: 0.72rem;
+      color: var(--grey-400);
+    }
+
+    /* ============================================================
+       BOTTOM CTA BAND
+    ============================================================ */
+    .cta-band {
+      background: var(--navy);
+      padding: 52px 0;
+      text-align: center;
+    }
+
+    .cta-band__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .cta-band__sub {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 28px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.18s, box-shadow 0.18s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-secondary:hover {
+      background: var(--coral-dk);
+      box-shadow: 0 6px 24px rgba(232, 93, 38, 0.4);
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 20px 0;
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer__logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .footer__logo span { color: var(--coral); }
+
+    .footer__copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ============================================================
+       FLOATING WHATSAPP BUTTON
+    ============================================================ */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 52px;
+      height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+      z-index: 200;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+
+    .whatsapp-fab:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.55);
+    }
+
+    .whatsapp-fab svg { width: 28px; height: 28px; }
+
+    /* ============================================================
+       LOADING SPINNER ON BUTTON
+    ============================================================ */
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ============================================================
+       ACCESSIBILITY: reduced motion
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- GTM NOSCRIPT (replace GTM-XXXXXXX) -->
+  <!--
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  -->
+
+  <!-- ========================================================
+       NAVIGATION
+  ======================================================== -->
+  <nav class="nav" aria-label="Primary navigation">
+    <div class="container">
+      <div class="nav__inner">
+        <div class="nav__logo">Ortho<span>Now</span></div>
+        <a class="nav__phone" href="tel:+918046001234" aria-label="Call OrthoNow">
+          <!-- Phone icon -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          +91 80 4600 1234
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================
+       HERO SECTION
+  ======================================================== -->
+  <section class="hero" aria-labelledby="hero-headline">
+
+    <!-- Ambient orthopaedic illustration (spine vertebrae motif) -->
+    <svg class="hero__ambient" aria-hidden="true" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stylised spine vertebrae stack -->
+      <ellipse cx="150" cy="60"  rx="60" ry="22" fill="white"/>
+      <ellipse cx="150" cy="60"  rx="40" ry="12" fill="white" opacity=".6"/>
+      <rect x="140" y="80" width="20" height="28" rx="4" fill="white" opacity=".5"/>
+      <ellipse cx="150" cy="125" rx="58" ry="21" fill="white"/>
+      <ellipse cx="150" cy="125" rx="38" ry="11" fill="white" opacity=".6"/>
+      <rect x="140" y="144" width="20" height="28" rx="4" fill="white" opacity=".5"/>
+      <ellipse cx="150" cy="189" rx="56" ry="21" fill="white"/>
+      <ellipse cx="150" cy="189" rx="36" ry="11" fill="white" opacity=".6"/>
+      <rect x="140" y="208" width="20" height="28" rx="4" fill="white" opacity=".5"/>
+      <ellipse cx="150" cy="253" rx="54" ry="21" fill="white"/>
+      <ellipse cx="150" cy="253" rx="34" ry="11" fill="white" opacity=".6"/>
+      <rect x="140" y="272" width="20" height="28" rx="4" fill="white" opacity=".5"/>
+      <ellipse cx="150" cy="317" rx="52" ry="21" fill="white"/>
+      <ellipse cx="150" cy="317" rx="32" ry="11" fill="white" opacity=".6"/>
+    </svg>
+
+    <div class="container">
+      <div class="hero__layout">
+
+        <!-- Copy side -->
+        <div class="hero__copy">
+          <div class="hero__eyebrow">Expert Orthopaedic Care · Bengaluru</div>
+          <h1 class="hero__headline" id="hero-headline">
+            That knee pain isn't going to fix itself.<br/>
+            <em>Get an expert opinion — this week.</em>
+          </h1>
+          <p class="hero__subheadline">
+            OrthoNow's senior orthopaedic consultants see patients for knee, back, shoulder, and joint pain
+            across 9 clinics in Bengaluru, Hyderabad, and Chennai. Same-week appointments available.
+          </p>
+        </div>
+
+        <!-- Form side -->
+        <div class="hero__form-wrap" id="book-form-section">
+          <div class="form-card" role="form" aria-label="Book consultation form">
+
+            <!-- Form state: visible by default -->
+            <div id="form-state">
+              <p class="form-card__title">Book your consultation</p>
+              <p class="form-card__sub">Free callback in &lt; 2 hours · <strong>No OPD fee for online bookings</strong></p>
+
+              <!-- Consultation form — 2 fields as per brief -->
+              <form id="consultation-form" novalidate>
+
+                <!-- Field 1: Full name -->
+                <div class="field">
+                  <label for="patient-name">Your full name</label>
+                  <input
+                    type="text"
+                    id="patient-name"
+                    name="patient_name"
+                    placeholder="e.g. Arun Sharma"
+                    autocomplete="name"
+                    inputmode="text"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                  />
+                  <span class="field__error" id="name-error" role="alert">Please enter your name</span>
+                </div>
+
+                <!-- Field 2: Phone number -->
+                <div class="field">
+                  <label for="patient-phone">WhatsApp / phone number</label>
+                  <input
+                    type="tel"
+                    id="patient-phone"
+                    name="patient_phone"
+                    placeholder="+91 98765 43210"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    required
+                    aria-required="true"
+                    aria-describedby="phone-error"
+                  />
+                  <span class="field__error" id="phone-error" role="alert">Please enter a valid 10-digit mobile number</span>
+                </div>
+
+                <!-- Clinic preference (bonus field; maps to HubSpot property) -->
+                <div class="field field--select">
+                  <label for="clinic-city">Preferred city</label>
+                  <select id="clinic-city" name="clinic_city" aria-label="Select preferred city">
+                    <option value="">Select city</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Chennai">Chennai</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="btn-primary" id="submit-btn">
+                  Book My Consultation — Free
+                </button>
+
+              </form>
+
+              <p class="form-card__privacy">
+                🔒 We never share your details. No spam, ever.
+              </p>
+            </div>
+
+            <!-- Thank-you state: hidden until form submitted -->
+            <div class="thankyou" id="thankyou-state" aria-live="polite" aria-atomic="true">
+              <div class="thankyou__icon">
+                <!-- Checkmark SVG -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <p class="thankyou__title">You're booked in!</p>
+              <p class="thankyou__body">
+                Our team will call you within <strong>2 hours</strong>.<br/>
+                You'll also receive a WhatsApp confirmation shortly.<br/><br/>
+                Questions? Call us: <strong>+91 80 4600 1234</strong>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       TRUST STATISTICS STRIP
+  ======================================================== -->
+  <section class="trust-strip" aria-label="OrthoNow by the numbers">
+    <div class="container">
+      <div class="trust-strip__inner">
+
+        <div class="trust-stat">
+          <div class="trust-stat__icon">
+            <!-- Building icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h6"/>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-stat__num">9</div>
+            <div class="trust-stat__label">Clinics across 3 cities</div>
+          </div>
+        </div>
+
+        <div class="trust-stat">
+          <div class="trust-stat__icon">
+            <!-- Users icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-stat__num">18,000+</div>
+            <div class="trust-stat__label">Patients treated</div>
+          </div>
+        </div>
+
+        <div class="trust-stat">
+          <div class="trust-stat__icon">
+            <!-- Star icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-stat__num">4.8★</div>
+            <div class="trust-stat__label">Average Google rating</div>
+          </div>
+        </div>
+
+        <div class="trust-stat">
+          <div class="trust-stat__icon">
+            <!-- Clock icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1A7A5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-stat__num">&lt; 2 hrs</div>
+            <div class="trust-stat__label">Callback guarantee</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PAIN VALIDATION — audience mirror
+  ======================================================== -->
+  <section class="pain-section" aria-labelledby="pain-title">
+    <div class="container">
+      <p class="section-eyebrow">Sound familiar?</p>
+      <h2 class="section-title" id="pain-title">
+        Working through the pain<br/>is not a strategy.
+      </h2>
+      <p class="section-body">
+        Most people delay for 6–18 months before seeing an orthopaedic specialist.
+        By then, a manageable condition often needs surgery that a timely consultation
+        could have avoided.
+      </p>
+
+      <div class="pain-grid" role="list">
+        <div class="pain-card" role="listitem">
+          <div class="pain-card__dot" aria-hidden="true"></div>
+          <p class="pain-card__text">Knee pain after your morning walk that you've been ignoring for months</p>
+        </div>
+        <div class="pain-card" role="listitem">
+          <div class="pain-card__dot" aria-hidden="true"></div>
+          <p class="pain-card__text">Lower back pain that gets worse after sitting at your desk all day</p>
+        </div>
+        <div class="pain-card" role="listitem">
+          <div class="pain-card__dot" aria-hidden="true"></div>
+          <p class="pain-card__text">Shoulder stiffness that's quietly limiting your range of motion</p>
+        </div>
+        <div class="pain-card" role="listitem">
+          <div class="pain-card__dot" aria-hidden="true"></div>
+          <p class="pain-card__text">A recurring ache you've been managing with painkillers instead of treating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       DOCTOR CREDENTIALS — trust proof
+  ======================================================== -->
+  <section class="doctors-section" aria-labelledby="doctors-title">
+    <div class="container">
+      <p class="section-eyebrow">Who you'll meet</p>
+      <h2 class="section-title" id="doctors-title">Senior consultants.<br/>Not registrars.</h2>
+      <p class="section-body">
+        Every OrthoNow consultation is with an MS Orthopaedics-qualified senior surgeon —
+        not a junior doctor or a general physician.
+      </p>
+
+      <div class="doctors-grid">
+
+        <article class="doctor-card" aria-label="Dr. Ramesh Iyer profile">
+          <div class="doctor-card__avatar" aria-hidden="true">RI</div>
+          <div>
+            <p class="doctor-card__name">Dr. Ramesh Iyer</p>
+            <p class="doctor-card__spec">Knee Replacement & Sports Orthopaedics</p>
+          </div>
+          <p class="doctor-card__qual">MS Orthopaedics, AIIMS Delhi<br/>Fellowship — Knee Surgery, Germany</p>
+          <p class="doctor-card__exp">22 years · 3,200+ knee procedures</p>
+        </article>
+
+        <article class="doctor-card" aria-label="Dr. Priya Menon profile">
+          <div class="doctor-card__avatar" aria-hidden="true">PM</div>
+          <div>
+            <p class="doctor-card__name">Dr. Priya Menon</p>
+            <p class="doctor-card__spec">Spine Surgery & Pain Management</p>
+          </div>
+          <p class="doctor-card__qual">MS Orthopaedics, CMC Vellore<br/>Advanced Spine Fellowship, Singapore</p>
+          <p class="doctor-card__exp">17 years · 1,800+ spine cases</p>
+        </article>
+
+        <article class="doctor-card" aria-label="Dr. Arvind Kulkarni profile">
+          <div class="doctor-card__avatar" aria-hidden="true">AK</div>
+          <div>
+            <p class="doctor-card__name">Dr. Arvind Kulkarni</p>
+            <p class="doctor-card__spec">Hip & Shoulder Reconstruction</p>
+          </div>
+          <p class="doctor-card__qual">MS Orthopaedics, NIMHANS, Bengaluru<br/>Fellowship — Arthroscopy, UK</p>
+          <p class="doctor-card__exp">15 years · 4.9★ patient rating</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       PATIENT REVIEWS
+  ======================================================== -->
+  <section class="reviews-section" aria-labelledby="reviews-title">
+    <div class="container">
+      <p class="section-eyebrow">Patient stories</p>
+      <h2 class="section-title" id="reviews-title">People just like you.</h2>
+
+      <div class="reviews-grid" role="list">
+
+        <article class="review-card" role="listitem" aria-label="Review by Meera R.">
+          <div class="review-card__stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-card__text">
+            "I was managing my knee pain with Combiflam for eight months. Dr. Iyer diagnosed a
+            partial ACL tear in the first consultation. Non-surgical rehab protocol. I'm back to
+            running now."
+          </p>
+          <div>
+            <p class="review-card__author">Meera R.</p>
+            <p class="review-card__city">Product Manager · Bengaluru, 34</p>
+          </div>
+        </article>
+
+        <article class="review-card" role="listitem" aria-label="Review by Karthik S.">
+          <div class="review-card__stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-card__text">
+            "Six years of back pain. Three GPs. Nobody told me it was a disc herniation until
+            Dr. Menon's clinic. Got an appointment the same week I submitted the form online."
+          </p>
+          <div>
+            <p class="review-card__author">Karthik S.</p>
+            <p class="review-card__city">Software Engineer · Whitefield, 41</p>
+          </div>
+        </article>
+
+        <article class="review-card" role="listitem" aria-label="Review by Divya N.">
+          <div class="review-card__stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-card__text">
+            "The online booking took 30 seconds. Dr. Kulkarni is thorough, does not rush,
+            explains everything in plain language. Finally feel like I have a plan."
+          </p>
+          <div>
+            <p class="review-card__author">Divya N.</p>
+            <p class="review-card__city">Entrepreneur · Koramangala, 38</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       BOTTOM CTA BAND
+  ======================================================== -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 class="cta-band__title" id="cta-title">
+        Stop managing.<br/>Start treating.
+      </h2>
+      <p class="cta-band__sub">Same-week appointments · No OPD fee for online bookings</p>
+      <a href="#book-form-section" class="btn-secondary" aria-label="Scroll to booking form">
+        Book My Consultation
+        <!-- Arrow icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER
+  ======================================================== -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Ortho<span>Now</span></div>
+        <p class="footer__copy">
+          © 2025 OrthoNow Healthcare Pvt. Ltd. · 9 Clinics across Bengaluru, Hyderabad & Chennai
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       FLOATING WHATSAPP BUTTON
+  ======================================================== -->
+  <a
+    href="https://wa.me/918046001234"
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with OrthoNow on WhatsApp"
+    id="whatsapp-fab"
+  >
+    <!-- WhatsApp SVG logo -->
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ========================================================
+       JAVASCRIPT: Form handling + GTM dataLayer push
+  ======================================================== -->
+  <script>
+    /**
+     * OrthoNow Landing Page — Form Logic
+     *
+     * Responsibilities:
+     *  1. Client-side validation (name + phone)
+     *  2. Fire GTM dataLayer push on SUBMIT (not on load)
+     *  3. Swap form → thank-you state without page reload
+     *  4. Track WhatsApp FAB click via dataLayer
+     *
+     * GTM dataLayer events fired:
+     *  - consultation_form_submitted  (on successful submit)
+     *  - whatsapp_chat_opened         (on FAB click)
+     *  - call_now_click               (on phone link click in nav)
+     */
+
+    // --- Helpers -----------------------------------------------------------
+
+    /**
+     * Validates a 10-digit Indian mobile number.
+     * Accepts optional +91 / 0 prefix and spaces/hyphens.
+     * @param {string} phone
+     * @returns {boolean}
+     */
+    function isValidIndianPhone(phone) {
+      const cleaned = phone.replace(/[\s\-\+]/g, '');
+      // Strip leading 91 or 0
+      const normalised = cleaned.replace(/^(91|0)/, '');
+      return /^[6-9]\d{9}$/.test(normalised);
+    }
+
+    /**
+     * Normalises phone to 10-digit local format for dataLayer.
+     * @param {string} phone
+     * @returns {string}
+     */
+    function normalisePhone(phone) {
+      const cleaned = phone.replace(/[\s\-\+]/g, '');
+      return cleaned.replace(/^(91|0)/, '').slice(-10);
+    }
+
+    /**
+     * Shows a field-level validation error.
+     * @param {HTMLInputElement} input
+     * @param {string} errorId
+     */
+    function showError(input, errorId) {
+      input.classList.add('error');
+      input.setAttribute('aria-invalid', 'true');
+      const errEl = document.getElementById(errorId);
+      if (errEl) errEl.classList.add('visible');
+    }
+
+    /**
+     * Clears a field-level validation error.
+     * @param {HTMLInputElement} input
+     * @param {string} errorId
+     */
+    function clearError(input, errorId) {
+      input.classList.remove('error');
+      input.setAttribute('aria-invalid', 'false');
+      const errEl = document.getElementById(errorId);
+      if (errEl) errEl.classList.remove('visible');
+    }
+
+    // --- Form submission ---------------------------------------------------
+
+    const form        = document.getElementById('consultation-form');
+    const submitBtn   = document.getElementById('submit-btn');
+    const formState   = document.getElementById('form-state');
+    const thankyou    = document.getElementById('thankyou-state');
+    const nameInput   = document.getElementById('patient-name');
+    const phoneInput  = document.getElementById('patient-phone');
+    const citySelect  = document.getElementById('clinic-city');
+
+    // Clear errors on user interaction (live feedback)
+    nameInput.addEventListener('input', () => clearError(nameInput, 'name-error'));
+    phoneInput.addEventListener('input', () => clearError(phoneInput, 'phone-error'));
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent any page reload
+
+      let valid = true;
+
+      // --- Validate name ---
+      const nameVal = nameInput.value.trim();
+      if (!nameVal || nameVal.length < 2) {
+        showError(nameInput, 'name-error');
+        valid = false;
+      } else {
+        clearError(nameInput, 'name-error');
+      }
+
+      // --- Validate phone ---
+      const phoneVal = phoneInput.value.trim();
+      if (!phoneVal || !isValidIndianPhone(phoneVal)) {
+        showError(phoneInput, 'phone-error');
+        valid = false;
+      } else {
+        clearError(phoneInput, 'phone-error');
+      }
+
+      if (!valid) return;
+
+      // --- Disable button, show loading state ---
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Submitting…';
+
+      // --- Simulate async submission (replace with real fetch/API call) ---
+      // In production: POST to your backend/HubSpot Forms API here
+      setTimeout(function() {
+
+        // ================================================================
+        // GTM DATALAYER PUSH — fires on successful form submission
+        // This is the event Google Ads conversion tracking listens to.
+        // Dispatched AFTER validation passes, NOT on page load.
+        // ================================================================
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event:             'consultation_form_submitted',  // GA4 event name / Google Ads conversion
+          patient_name:      nameVal,                        // first-party signal (use with caution)
+          clinic_preference: citySelect.value || 'not_specified', // maps to HubSpot 'clinic_preference'
+          form_location:     'hero_landing_page',            // distinguishes from other forms site-wide
+          campaign_source:   'google_ads_consultation_lp'   // attribution hint for CRM
+          // NOTE: phone intentionally NOT pushed to dataLayer — PII risk.
+          // Capture server-side or via secure form POST to backend.
+        });
+
+        // Optional: also push an enhanced conversion event for Google Ads
+        // (requires hashed email/phone — omitted here for PII safety)
+
+        console.log('[OrthoNow] GTM dataLayer push fired:', window.dataLayer[window.dataLayer.length - 1]);
+
+        // --- Swap form → thank-you state ---
+        formState.style.display = 'none';
+        thankyou.classList.add('visible');
+        thankyou.focus(); // shift screen reader focus to confirmation
+
+      }, 900); // 900ms simulated latency
+    });
+
+    // --- WhatsApp FAB dataLayer push ---------------------------------------
+    document.getElementById('whatsapp-fab').addEventListener('click', function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event:         'whatsapp_chat_opened',
+        click_location: 'floating_fab',
+        page_path:     window.location.pathname
+      });
+    });
+
+    // --- Call Now (nav phone) dataLayer push ------------------------------
+    const navPhone = document.querySelector('.nav__phone');
+    if (navPhone) {
+      navPhone.addEventListener('click', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event:         'call_now_click',
+          click_location: 'navigation_bar',
+          phone_number:  '+918046001234'
+        });
+      });
+    }
+
+    // --- Smooth scroll for bottom CTA anchor -----------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Focus first focusable element in the section
+          const firstInput = target.querySelector('input, button, select');
+          if (firstInput) {
+            setTimeout(function() { firstInput.focus(); }, 500);
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
