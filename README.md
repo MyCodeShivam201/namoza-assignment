@@ -38,3 +38,5 @@ To see the GTM dataLayer push fire live: open DevTools console, fill the 2-field
 - **Task 1** is a written deliverable per the brief, no code.
 - **Task 2's HubSpot/Karix/Google Ads server-side calls described in Task 3 are not implemented in `index.html`** — the brief's Task 2 scope is the front-end dataLayer push only; the actual CRM/WhatsApp wiring is correctly scoped to Task 3 as an architecture answer, not a working integration, since standing up live HubSpot and Karix accounts wasn't part of the ask.
 - **GTM container itself is not provisioned** — Task 1 is the schema that would be built *into* a GTM container; the brief asks for the schema as a deliverable, not a live GTM workspace export.
+
+Screenshot 2026-07-02 at 8.28.52 PM
